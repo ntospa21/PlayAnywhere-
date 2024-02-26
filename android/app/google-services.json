@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "509222498022",
+    "project_id": "play-anywhere",
+    "storage_bucket": "play-anywhere.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509222498022:android:eb19ef805387456417d527",
+        "android_client_info": {
+          "package_name": "com.example.play_anywhere"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCVGmz50_foWdaI5D7_Z4D7PSMo_xyrjY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
