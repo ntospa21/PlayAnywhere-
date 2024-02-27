@@ -63,4 +63,22 @@ class FirebaseUserRepo implements UserRepository {
   Future<void> logOut() async {
     await _firebaseAuth.signOut();
   }
+
+  @override
+  Future<String> getUserData() async {
+    try {
+      final documentSnapshot = await usersCollection
+          .doc(FirebaseAuth.instance.currentUser?.uid)
+          .get();
+
+      // Access the 'name' field from the document snapshot data
+      final username = documentSnapshot.get('name');
+      print('Retrieved username: $username');
+
+      return username;
+    } catch (e) {
+      log(e.toString());
+      return '';
+    }
+  }
 }
