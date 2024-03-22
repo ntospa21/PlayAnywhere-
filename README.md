@@ -1,16 +1,19 @@
-# play_anywhere
 
-A new Flutter project.
+#Play Anywhere
 
-## Getting Started
+Welcome to the Sports Meetup App repository! This app allows users to organize and join sports activities with their friends and strangers alike, fostering community engagement and promoting an active lifestyle.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Organize Sports Events: Users can create events for various sports activities such as football, basketball, soccer, etc.
+- Invite people: invite people directly through the app to join your sports event.
+- Chat Functionality: Communicate with fellow participants through an in-app chat feature to coordinate details or discuss game strategies.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Authors
+
+- [@ntospa21](https://github.com/ntospa21)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
