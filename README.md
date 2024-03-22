@@ -1,5 +1,5 @@
 
-#Play Anywhere
+# Play Anywhere
 
 Welcome to the Sports Meetup App repository! This app allows users to organize and join sports activities with their friends and strangers alike, fostering community engagement and promoting an active lifestyle.
 
