@@ -9,11 +9,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:play_anywhere/main.dart';
+import 'package:play_anywhere/views/app.dart';
+import '../packages/user_repository/lib/src/firebase_user_repo.dart'
+    as FirebaseUserRepo;
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const MyApp(FirebaseUserRepo.FirebaseUserRepo));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
@@ -27,4 +30,3 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
-}

@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 import 'firebase_options.dart';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
 /// Example:
@@ -14,6 +16,10 @@ import 'firebase_options.dart';
 /// await Firebase.initializeApp(x
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
+
+void main() async {
+  await dotenv.load(fileName: '.env');
+}
 
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
@@ -47,16 +53,16 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCCVGmz50_foWdaI5D7_Z4D7PSMo_xyrjY',
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: '${dotenv.env['FB_AND_API_KEY']}',
     appId: '1:509222498022:android:eb19ef805387456417d527',
     messagingSenderId: '509222498022',
     projectId: 'play-anywhere',
     storageBucket: 'play-anywhere.appspot.com',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCpPTIZIkmmfj31TE-qYvhDpwxmnEShRgM',
+  static FirebaseOptions ios = FirebaseOptions(
+    apiKey: '${dotenv.env['FB_IOS_API_KEY']}',
     appId: '1:509222498022:ios:bec3279cdc56ef8a17d527',
     messagingSenderId: '509222498022',
     projectId: 'play-anywhere',
@@ -64,8 +70,8 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.example.playAnywhere',
   );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCpPTIZIkmmfj31TE-qYvhDpwxmnEShRgM',
+  static FirebaseOptions macos = FirebaseOptions(
+    apiKey: '${dotenv.env['FB_IOS_API_KEY']}',
     appId: '1:509222498022:ios:b7d4c7cceda37ce517d527',
     messagingSenderId: '509222498022',
     projectId: 'play-anywhere',
