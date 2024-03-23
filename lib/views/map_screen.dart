@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapScreen extends StatefulWidget {
@@ -9,40 +10,51 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  LatLng? _markerPosition;
+  late Stream<Position> _positionStream;
+  GoogleMapController? _mapController;
+
+  @override
+  void initState() {
+    super.initState();
+    _positionStream = Geolocator.getPositionStream();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Map Screen'),
+        title: const Text('Map Screen'),
       ),
-      body: GoogleMap(
-        onTap: _handleTap,
-        markers: _markerPosition == null
-            ? {}
-            : {
-                Marker(
-                  markerId: MarkerId("1"),
-                  icon: BitmapDescriptor.defaultMarker,
-                  position: _markerPosition!,
-                  onTap: () {
-                    print("Marker tapped at: $_markerPosition");
-                  },
-                ),
+      body: StreamBuilder<Position>(
+        stream: _positionStream,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final position = snapshot.data!;
+            final latLng = LatLng(position.latitude, position.longitude);
+
+            if (_mapController != null) {
+              _mapController!.animateCamera(CameraUpdate.newLatLng(latLng));
+            }
+
+            return GoogleMap(
+              onMapCreated: (controller) {
+                _mapController = controller;
               },
-        initialCameraPosition: CameraPosition(
-          target: LatLng(37.4223, -122.084),
-          zoom: 15,
-        ),
+              initialCameraPosition: CameraPosition(
+                target: latLng,
+                zoom: 15.0,
+              ),
+              markers: {
+                Marker(markerId: MarkerId('current_location'), position: latLng)
+              },
+            );
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        },
       ),
     );
-  }
-
-  void _handleTap(LatLng tappedPoint) {
-    setState(() {
-      _markerPosition = tappedPoint;
-      print("Tapped at: $tappedPoint");
-    });
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:play_anywhere/views/home_screen.dart';
 
 import '../../bloc/sign_in_bloc/bloc/sign_in_bloc.dart';
 import '../widgets/my_text_field.dart';

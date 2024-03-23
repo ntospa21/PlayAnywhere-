@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:play_anywhere/views/map_screen.dart';
 
 import '../bloc/authentication/bloc/authentication_bloc.dart';
 import '../bloc/sign_in_bloc/bloc/sign_in_bloc.dart';
@@ -10,13 +9,12 @@ import 'home_screen.dart';
 import 'welcome_screen.dart';
 
 class MyAppView extends StatelessWidget {
-  const MyAppView({Key? key});
+  const MyAppView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final LatLng markerPosition =
-        LatLng(37.4223, -122.084); // Your dynamic coordinates
-
     return MaterialApp(
       title: 'Firebase Auth',
       theme: ThemeData(

@@ -8,9 +8,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:play_anywhere/main.dart';
 import 'package:play_anywhere/views/app.dart';
-import '../packages/user_repository/lib/src/firebase_user_repo.dart'
+import 'package:user_repository/src/firebase_user_repo.dart'
     as FirebaseUserRepo;
 
 void main() {
