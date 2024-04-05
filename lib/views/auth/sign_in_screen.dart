@@ -53,7 +53,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         hintText: 'Email',
                         obscureText: false,
                         keyboardType: TextInputType.emailAddress,
-                        prefixIcon: const Icon(CupertinoIcons.mail_solid),
+                        prefixIcon: const Icon(Icons.email),
                         errorMsg: _errorMsg,
                         validator: (val) {
                           if (val!.isEmpty) {
@@ -72,7 +72,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     hintText: 'Password',
                     obscureText: obscurePassword,
                     keyboardType: TextInputType.visiblePassword,
-                    prefixIcon: const Icon(CupertinoIcons.lock_fill),
+                    prefixIcon: const Icon(Icons.lock),
                     errorMsg: _errorMsg,
                     validator: (val) {
                       if (val!.isEmpty) {
@@ -89,9 +89,9 @@ class _SignInScreenState extends State<SignInScreen> {
                         setState(() {
                           obscurePassword = !obscurePassword;
                           if (obscurePassword) {
-                            iconPassword = CupertinoIcons.eye_fill;
+                            iconPassword = Icons.remove_red_eye;
                           } else {
-                            iconPassword = CupertinoIcons.eye_slash_fill;
+                            iconPassword = Icons.remove_red_eye_rounded;
                           }
                         });
                       },

@@ -34,7 +34,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
         if (state is SignUpSuccess) {
           setState(() {
             signUpRequired = false;
-            print("Success");
           });
           // Navigator.pop(context);
         } else if (state is SignUpProcess) {
@@ -42,7 +41,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             signUpRequired = true;
           });
         } else if (state is SignUpFailure) {
-          print("error");
           return;
         }
       },
@@ -60,7 +58,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       hintText: 'Email',
                       obscureText: false,
                       keyboardType: TextInputType.emailAddress,
-                      prefixIcon: const Icon(CupertinoIcons.mail_solid),
+                      prefixIcon: const Icon(Icons.email_outlined),
                       validator: (val) {
                         if (val!.isEmpty) {
                           return 'Please fill in this field';
@@ -79,7 +77,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       hintText: 'Password',
                       obscureText: obscurePassword,
                       keyboardType: TextInputType.visiblePassword,
-                      prefixIcon: const Icon(CupertinoIcons.lock_fill),
+                      prefixIcon: const Icon(Icons.lock),
                       onChanged: (val) {
                         if (val!.contains(RegExp(r'[A-Z]'))) {
                           setState(() {
@@ -134,9 +132,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           setState(() {
                             obscurePassword = !obscurePassword;
                             if (obscurePassword) {
-                              iconPassword = CupertinoIcons.eye_fill;
+                              iconPassword = Icons.remove_red_eye_sharp;
                             } else {
-                              iconPassword = CupertinoIcons.eye_slash_fill;
+                              iconPassword = Icons.remove_red_eye_sharp;
                             }
                           });
                         },

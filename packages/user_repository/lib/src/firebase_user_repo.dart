@@ -27,6 +27,8 @@ class FirebaseUserRepo implements UserRepository {
           email: email, password: password);
     } catch (e) {
       log(e.toString());
+      print("Firebase Authentication error: $e");
+
       rethrow;
     }
   }
@@ -42,6 +44,7 @@ class FirebaseUserRepo implements UserRepository {
       return myUser;
     } catch (e) {
       log(e.toString());
+      print(e.toString());
       rethrow;
     }
   }
